@@ -1,7 +1,7 @@
 from matplotlib import pyplot as plt
 
 
-def bertalanffy(volume, alpha = 0.25, beta = 0.1):
+def bertalanffy(t, volume, alpha = 0.25, beta = 0.1):
     """
     formule uit: https://www.researchgate.net/publication/378286328_Treatment_Optimization_for_Tumor_Growth_by_Ordinary_Differential_Equations
     Params:
@@ -29,7 +29,7 @@ def model_tumor_growth(formule, start_volume = 0.0001, N=50, delta_t=1.0, **kwar
     volume = start_volume
     volumes = [start_volume]
     for _ in range(N):
-        groei = formule(volume, **kwargs)
+        groei = formule(t, volume, **kwargs)
         t = t + delta_t
         volume = volume + groei
         ts.append(t)
