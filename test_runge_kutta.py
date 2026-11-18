@@ -65,3 +65,9 @@ plt.title(f"Muis 33, dt = {dt}")
 plt.legend()
 plt.grid(True)
 plt.show()
+
+
+if __name__ == "__main__":
+    c = 0.08
+    ...
+    plt.show()
