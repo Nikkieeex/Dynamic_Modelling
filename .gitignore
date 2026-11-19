@@ -1,5 +1,3 @@
-LM2-4LUC.txt
-
 # Bij repo maken heb ik add Python gitignore gedaan, vandaar lange lijst
 __pycache__/
 *.py[codz]
