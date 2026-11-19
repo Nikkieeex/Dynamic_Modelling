@@ -62,7 +62,9 @@ def model_tumor_growth(formule, start_volume = 0.0001, N=50, delta_t=1.0, **kwar
     for _ in range(N):
         groei = formule(t, volume, **kwargs)
         t = t + delta_t
-        volume = volume + (groei * delta_t)
+        
+        volume = volume + (groei * delta_t) # bij andere delta stapgrootte moet hier wel * delta_t
+        
         ts.append(t)
         volumes.append(volume)
     return ts, volumes
