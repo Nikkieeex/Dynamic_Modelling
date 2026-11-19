@@ -33,7 +33,7 @@ from package.models import bertalanffy, model_tumor_growth
 
 
 # Data inlezen
-data = pd.read_csv("LM2-4LUC.txt", sep="\t")
+data = pd.read_csv("test_data/LM2-4LUC.txt", sep="\t")
 
 # Eén muis kiezen
 mouse = data[data["ID"] == 33]
@@ -66,8 +66,4 @@ plt.legend()
 plt.grid(True)
 plt.show()
 
-
-if __name__ == "__main__":
-    c = 0.08
-    ...
-    plt.show()
+## if __name__ == "__main__":

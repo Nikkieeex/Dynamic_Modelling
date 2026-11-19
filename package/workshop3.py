@@ -4,10 +4,11 @@ from random import gauss
 from matplotlib import pyplot as plt
 
 from package.models import bertalanffy
-from test_runge_kutta import runge_kutta
+from package.test_runge_kutta import runge_kutta
 
 # Data van muis 33
-data = pd.read_csv("LM2-4LUC.txt", sep="\t")
+data = pd.read_csv("test_data/LM2-4LUC.txt", sep="\t")
+# mouse = mouse[mouse["Observation"] > 0] er zitten nul waarden in de data idk of het zinvol is om die eruit te halen
 mouse = data[data["ID"] == 33]
 t_data = mouse["Time"].values
 V_data = mouse["Observation"].values
