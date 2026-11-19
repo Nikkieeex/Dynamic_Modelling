@@ -1,4 +1,19 @@
 from matplotlib import pyplot as plt
+from math import log
+
+
+def logistic(t, volume, alpha = 0.25, beta = 0.1):
+    """
+    formule uit: https://www.researchgate.net/publication/378286328_Treatment_Optimization_for_Tumor_Growth_by_Ordinary_Differential_Equations
+    Params:
+      volume (float):   volume van de tumor (mm^3)
+      alpha (float):    gemiddelde cel groei (per dag)
+      beta (float):     maximum tumor volume (mm^3)
+    Retourneert:
+      groei (float):    groei van de tumor (mm^3)
+    """
+    return (alpha*volume) * (1 - (volume / beta))
+
 
 
 def bertalanffy(t, volume, alpha = 0.25, beta = 0.1):
@@ -12,6 +27,21 @@ def bertalanffy(t, volume, alpha = 0.25, beta = 0.1):
       groei (float):    groei van de tumor (mm^3)
     """
     return (alpha * volume**(2/3)) - (beta * volume)
+
+
+def gompertz(t, volume, alpha = 0.25, beta = 0.1):
+    """
+    formule uit: https://www.researchgate.net/publication/378286328_Treatment_Optimization_for_Tumor_Growth_by_Ordinary_Differential_Equations
+    Params:
+      volume (float):   volume van de tumor (mm^3)
+      alpha (float):    gemiddelde cel groei (per dag)
+      beta (float):     maximum tumor volume (mm^3)
+    Retourneert:
+      groei (float):    groei van de tumor (mm^3)
+    """
+    # "If the base is not specified, returns the natural logarithm (base e) of x.", dus log is hier ln
+    return volume * (alpha - beta * log(x = volume))
+
 
 
 def model_tumor_growth(formule, start_volume = 0.0001, N=50, delta_t=1.0, **kwargs):
