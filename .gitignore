@@ -1,4 +1,8 @@
 # Bij repo maken heb ik add Python gitignore gedaan, vandaar lange lijst
+
+.idea/
+
+
 __pycache__/
 *.py[codz]
 *$py.class

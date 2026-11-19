@@ -35,3 +35,11 @@ met een stapgrootte van 0,1 dag zichtbaar onder de exacte oplossing.
 
 Het rekenwerk is dus goed, maar het exponentiële model beschrijft de groei
 verkeerd. Daarom moeten andere modellen worden geprobeerd die de groei wel kunnen laten afremmen.
+
+#### Optimalisatie 
+
+Ik de code van workshop 3 van Brightspace gebruiken en aanpassen aan ons tumormodel. 
+
+Ik koppel mijn eigen Runge-Kutta solver aan een MSE-functie, die berekent hoe ver de modelcurve van de metingen van muis 33 afligt. Daarna laat ik de zoekmethodes uit de workshop (random search en direct search) zelf de waarden voor alpha en beta zoeken waarbij de MSE het laagst is. Als startwaarden gebruik ik de waarden uit workshop 1, omdat die al redelijk in de buurt lijken te zitten.
+
+Met de startwaarden uit workshop 1 is de MSE 7061. Random search en direct search vinden bijna dezelfde waarden, namelijk alpha ≈ 1.23 en beta ≈ 0.042, allebei met een MSE van 5600. Daardoor ligt de oranje lijn precies onder de groene lijn. De startwaarden uit workshop 1 zaten dus in de buurt, maar de zoekmethodes vinden een betere fit. De nieuwe curve volgt vooral het begin en het eind van de metingen beter. De punten rond dag 20 en dag 26 liggen duidelijk naast de curve.
