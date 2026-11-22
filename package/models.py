@@ -12,7 +12,10 @@ def logistic(t, volume, alpha = 1.5, beta = 1500):
     Retourneert:
       groei (float):    groei van de tumor (mm^3)
     """
+    if beta <= 0:  # voorkomt delen door nul
+        raise ValueError("beta moet groter dan nul zijn")
     return (alpha*volume) * (1 - (volume / beta))
+    
 
 
 
