@@ -6,9 +6,9 @@ def exponential(volume, c = 0.08):
     exponentiele groei formule
     Params:
       volume (float): volume van de tumor
-      c (float): constante
-    Return:
-
+      c (float):      groeisnelheid
+    Retourneert:
+      groei (float):  groei van de tumor
     """
     return c * volume
 
@@ -18,8 +18,10 @@ def mendelsohn(volume, c = 0.08, d = 1):
     Mendelsohn groei formule
     Params:
       volume (float): volume van de tumor
-      c (float): constante
-      d (float): constante
+      c (float):      groeisnelheid
+      d (float):      constante
+    Retourneert:
+      groei (float):  groei van de tumor
     """ 
     return c * (volume**d)
 
@@ -30,7 +32,7 @@ def logistic(volume, alpha = 1.5, beta = 1500):
     formule uit: https://www.researchgate.net/publication/378286328_Treatment_Optimization_for_Tumor_Growth_by_Ordinary_Differential_Equations
     Params:
       volume (float):   volume van de tumor
-      alpha (float):    cel groei
+      alpha (float):    celgroei (groeisnelheid)
       beta (float):     maximum tumor volume
     Retourneert:
       groei (float):    groei van de tumor
@@ -48,8 +50,8 @@ def bertalanffy(volume, alpha = 1.5, beta = 0.1):
     formule uit: https://www.researchgate.net/publication/378286328_Treatment_Optimization_for_Tumor_Growth_by_Ordinary_Differential_Equations
     Params:
       volume (float):   volume van de tumor
-      alpha (float):    cel groei
-      beta (float):     gemiddelde cel dood
+      alpha (float):    celgroei (groeisnelheid)
+      beta (float):     celsterfte
     Retourneert:
       groei (float):    groei van de tumor
     """
@@ -62,7 +64,7 @@ def gompertz(volume, alpha = 1.5, beta = 0.1):
     formule uit: https://www.researchgate.net/publication/378286328_Treatment_Optimization_for_Tumor_Growth_by_Ordinary_Differential_Equations
     Params:
       volume (float):   volume van de tumor
-      alpha (float):    cel groei 
+      alpha (float):    celgroei (groeisnelheid) 
       beta (float):     afname van het cel groei
     Retourneert:
       groei (float):    groei van de tumor
@@ -101,9 +103,9 @@ def model_tumor_growth(formule, start_volume = 0.0001, N=50, delta_t=1.0, **kwar
 def plot_model(ts, volumes, modelnaam = None):
     """Plot de resultaten van het groei model.
     Parameters:
-      ts (list[float]): lijst met tijdstippen
+      ts (list[float]):      lijst met tijdstippen
       volumes (list[float]): lijst met volumes
-      modelnaam (string): naam van de te plotten model
+      modelnaam (string):    naam van de te plotten model
     """
     plt.plot(ts, volumes, label =  modelnaam)
     if modelnaam:  # plt.legend() geeft warning als er niks is om in de legend te zetten
