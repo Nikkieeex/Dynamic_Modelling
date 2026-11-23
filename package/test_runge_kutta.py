@@ -12,11 +12,10 @@ def runge_kutta(f, t_start, y_start, dt, n_steps, **kwargs):
     ys = [y_start]
     y = y_start
     for i in range(n_steps):
-        t = t_start + i * dt
-        k1 = f(t, y, **kwargs)
-        k2 = f(t + 0.5 * dt, y + 0.5 * k1 * dt, **kwargs)
-        k3 = f(t + 0.5 * dt, y + 0.5 * k2 * dt, **kwargs)
-        k4 = f(t + dt, y + k3 * dt, **kwargs)
+        k1 = f(y, **kwargs)
+        k2 = f(y + 0.5 * k1 * dt, **kwargs)
+        k3 = f(y + 0.5 * k2 * dt, **kwargs)
+        k4 = f(y + k3 * dt, **kwargs)
         y = y + (k1 + 2 * k2 + 2 * k3 + k4) / 6 * dt
         ts.append(t_start + (i + 1) * dt)
         ys.append(y)
@@ -25,7 +24,7 @@ def runge_kutta(f, t_start, y_start, dt, n_steps, **kwargs):
 
 # Tijdelijk model, later vervangen door de modellen van me boy sven
 c = 0.08
-def exponential(t, V):
+def exponential(V):
     return c * V
 
 
