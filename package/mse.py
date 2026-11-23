@@ -2,7 +2,7 @@
 Deze functie is grotendeels overgenomen uit package/workshop3.py
 """
 import numpy as np
-from package.test_runge_kutta import runge_kutta
+from package.runge_kutta import runge_kutta
 
 
 def MSE(t_data, V_data, model, dt = 1, **params):
